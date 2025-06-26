@@ -48,7 +48,7 @@ const PRODUCTS: Product[] = [
     label: 'Moong Ladoo', 
     price: 35000, 
     mainPrice: 1750000,
-    image: '/moong-ladoo.jpg',
+    image: '/ladoo.jpeg',
     description: 'Traditional ladoo prepared with roasted moong dal and ghee',
     rating: 4.6
   },
