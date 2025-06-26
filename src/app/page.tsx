@@ -16,7 +16,7 @@ import BhajiCarousel from "@/components/BhajiCarousel";
 export default function Home() {
   const { status } = useSession();
 
-  if (status === "loading") return <p className="text-center mt-4">Loading...</p>;
+  if (status === "loading") return <p className="text-center mt-4 bg-orange-600">Loading...</p>;
 
   return (
     <>
