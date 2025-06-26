@@ -357,14 +357,15 @@ export default function SawamaniCollectionPage() {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-orange-50 to-white mt-16 py-12">
-        <Navbar />
-        <div className="flex justify-center items-center py-16">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mx-auto mb-4"></div>
-            <p className="text-gray-600 font-medium">Loading products...</p>
-          </div>
+      <Navbar />
+      <div className="flex justify-center items-center min-h-[calc(100vh-4rem)]">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mx-auto mb-4"></div>
+          <p className="text-orange-600 font-medium">Loading Sawamani...</p>
         </div>
       </div>
+    </div>
+    
     );
   }
 
