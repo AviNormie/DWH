@@ -138,14 +138,15 @@ export default function SavouriesCollection() {
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-orange-50 to-white mt-10">
-        <Navbar />
-        <div className="flex justify-center items-center py-16">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mx-auto mb-4"></div>
-            <p className="text-gray-600 font-medium">Loading savouries collection...</p>
-          </div>
-        </div>
-      </div>
+  <Navbar />
+  <div className="flex justify-center items-center min-h-[80vh]"> {/* Adjust height if needed */}
+    <div className="text-center">
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mx-auto mb-4"></div>
+      <p className="text-orange-600 font-medium">Loading savouries collection...</p>
+    </div>
+  </div>
+</div>
+
     );
   }
 
