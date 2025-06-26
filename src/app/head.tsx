@@ -7,4 +7,7 @@ export default function Head() {
       </>
     );
   }
-  
+  export const metadata = {
+    title: 'DWH',
+    description: 'Halwai shop',
+  }
