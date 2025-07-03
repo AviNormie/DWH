@@ -41,12 +41,51 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: '/favicon.png'
-  }
+  },
+  alternates: {
+    canonical: 'https://www.delhiwalahalwai.com',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  manifest: '/manifest.json',
+  themeColor: '#fff8e1',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" dir="ltr">
+      <head>
+        {/* Structured Data for Organization */}
+        <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          name: 'Delhi Wala Halwai',
+          url: 'https://www.delhiwalahalwai.com',
+          logo: 'https://www.delhiwalahalwai.com/favicon.png',
+          sameAs: [
+            'https://www.facebook.com/delhiwalahalwai',
+            'https://www.instagram.com/delhiwalahalwai/'
+          ],
+          contactPoint: [{
+            '@type': 'ContactPoint',
+            telephone: '+91-9034033999',
+            contactType: 'customer service',
+            areaServed: 'IN',
+            availableLanguage: ['English', 'Hindi']
+          }]
+        }) }} />
+      </head>
       <body>
         <QueryProvider>
           <ClientProviders>
