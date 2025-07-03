@@ -1,9 +1,4 @@
-# *
 User-agent: *
 Allow: /
 
-# Host
-Host: https://www.delhiwalahalwai.com/
-
-# Sitemaps
 Sitemap: https://www.delhiwalahalwai.com/sitemap.xml
