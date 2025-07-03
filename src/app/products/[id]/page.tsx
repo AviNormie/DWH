@@ -28,23 +28,6 @@ interface ProductItem {
   price?: number; // fallback for legacy products
 }
 
-export const metadata = {
-  title: 'Product Details - Delhiwala Halwai',
-  description: 'View details, pricing, and order options for our delicious sweets, namkeen, and bhaji boxes at Delhiwala Halwai.',
-  openGraph: {
-    title: 'Product Details - DWH',
-    description: 'Discover authentic Indian sweets, namkeen, and bhaji boxes. Freshly made, delivered to your doorstep.',
-    images: [
-      {
-        url: '/main.png', // Using an image from the public folder
-        width: 1200,
-        height: 630,
-        alt: 'Delhiwala Halwai Product',
-      },
-    ],
-  },
-};
-
 export default function ProductPage() {
   const params = useParams();
   const [product, setProduct] = useState<ProductItem | null>(null);
