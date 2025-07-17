@@ -97,7 +97,7 @@ const AboutUs = () => {
                 'Kaju Katli',
                 'Kalakand',
                 'Makhan Bada',
-                'Sooji Halwa',
+                // 'Sooji Halwa',
                 'Moong Ladoo',
               ].map((sweet, index) => (
                 <div key={index} className="text-center group cursor-pointer">

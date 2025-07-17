@@ -1,6 +1,6 @@
 // next-sitemap.config.js
 module.exports = {
-  siteUrl: 'https://www.delhiwalahalwai.com/', // replace with your domain
+  siteUrl: 'https://www.delhiwalahalwai.com/',
   generateRobotsTxt: true,
   changefreq: 'weekly',
   priority: 0.7,
