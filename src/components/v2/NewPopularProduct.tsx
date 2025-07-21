@@ -17,14 +17,6 @@ interface Pricing {
   _id?: string;
 }
 
-interface INamkeen {
-  _id?: string;
-  name: string;
-  description: string;
-  image: string;
-  type: string;
-  pricing: Pricing[];
-}
 
 // Combined type for both products and namkeens
 interface CombinedItem {
