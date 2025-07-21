@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import Carousel from "../components/Carousel";
 // import LatestProduct from "@/components/LatestSweet";
 import NewLatestProduct from "@/components/v2/NewLatestSweet";
-import PopularProduct from "@/components/PopularProduct";
+// import PopularProduct from "@/components/PopularProduct";
 import InteractiveMap from '@/components/InteractiveMap';
 // import LatestNamkeen from "@/components/LatestNamkeen";
 import NewLatestNamkeen from "@/components/v2/NewLastestNamkeen";
@@ -14,6 +14,7 @@ import FloatingEnquiryButton from "@/components/FloatingEnquiryButton";
 import About from "@/components/About";
 // import BhajiCarousel from "@/components/BhajiCarousel";
 import NewBhajiCarousel from "@/components/v2/NewBhajiCarousel";
+import NewPopularProduct from '@/components/v2/NewPopularProduct';
 
 export default function Home() {
   const { status } = useSession();
@@ -48,7 +49,8 @@ export default function Home() {
         </section>
 
         <section className="max-w-7xl mx-auto px-4 py-8">
-          <PopularProduct />
+          {/* <PopularProduct /> */}
+          <NewPopularProduct />
         </section>
         <section className="max-w-7xl mx-auto px-4 py-8">
           {/* <BhajiCarousel /> */}
