@@ -1,17 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import axios from "axios";
 import Image from "next/image";
 import { useCart } from '../../../app/context/CartContext';
 import { ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import Navbar from "@/components/Navbar";
 import { toast } from 'sonner';
+import { namkeenData } from '../../../data/namkeenData';
 
 interface Pricing {
   quantity: number;
-  unit: 'gm' | 'kg' | 'piece' | 'dozen';
+  unit: string;
   price: number;
   _id?: string;
 }
@@ -27,34 +27,24 @@ interface Namkeen {
 
 export default function SavouriesCollection() {
   const [namkeens, setNamkeens] = useState<Namkeen[]>([]);
-  const [selectedPricing, setSelectedPricing] = useState<{[key: string]: Pricing}>({});
-  const [dropdownOpen, setDropdownOpen] = useState<{[key: string]: boolean}>({});
+  const [selectedPricing, setSelectedPricing] = useState<{ [key: string]: Pricing }>({});
+  const [dropdownOpen, setDropdownOpen] = useState<{ [key: string]: boolean }>({});
   const [loading, setLoading] = useState(true);
   const { addToCart } = useCart();
 
   useEffect(() => {
-    const fetchNamkeens = async () => {
-      try {
-     
-        const res = await axios.get("/api/namkeen");
-        setNamkeens(res.data);
-        
-        // Set default selected pricing (first option for each namkeen)
-        const defaultPricing: {[key: string]: Pricing} = {};
-        res.data.forEach((namkeen: Namkeen) => {
-          if (namkeen.pricing.length > 0) {
-            defaultPricing[namkeen._id] = namkeen.pricing[0];
-          }
-        });
-        setSelectedPricing(defaultPricing);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching namkeens:", error);
-        setLoading(false);
-      }
-    };
+    // Use static data instead of API call
+    setNamkeens(namkeenData);
 
-    fetchNamkeens();
+    // Set default selected pricing (first option for each namkeen)
+    const defaultPricing: { [key: string]: Pricing } = {};
+    namkeenData.forEach((namkeen: Namkeen) => {
+      if (namkeen.pricing.length > 0) {
+        defaultPricing[namkeen._id] = namkeen.pricing[0];
+      }
+    });
+    setSelectedPricing(defaultPricing);
+    setLoading(false);
   }, []);
 
   const handlePricingSelect = (namkeenId: string, pricing: Pricing) => {
@@ -81,19 +71,22 @@ export default function SavouriesCollection() {
     // Prevent navigation when clicking add to cart
     event.preventDefault();
     event.stopPropagation();
-    
+
     if (!item._id) return;
 
     const selected = selectedPricing[item._id];
     if (!selected) return;
 
-  
+
     try {
       console.log('Adding to cart:', { itemId: item._id, selected }); // Debug log
-      // Pass the selected pricing to the cart
-      await addToCart(item._id, 1, selected);
+      // Pass the selected pricing to the cart (cast unit to expected type)
+      await addToCart(item._id, 1, {
+        ...selected,
+        unit: selected.unit as 'gm' | 'kg' | 'piece' | 'dozen'
+      });
       console.log('Successfully added to cart'); // Debug log
-      
+
       // Show success toast
       toast.success(
         `${item.name} (${selected.quantity}${getUnitDisplay(selected.unit)}) added to cart!`,
@@ -138,15 +131,14 @@ export default function SavouriesCollection() {
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-orange-50 to-white mt-10">
-  <Navbar />
-  <div className="flex justify-center items-center min-h-[80vh]"> {/* Adjust height if needed */}
-    <div className="text-center">
-      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mx-auto mb-4"></div>
-      <p className="text-orange-600 font-medium">Loading savouries collection...</p>
-    </div>
-  </div>
-</div>
-
+        <Navbar />
+        <div className="flex justify-center items-center min-h-[80vh]"> {/* Adjust height if needed */}
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mx-auto mb-4"></div>
+            <p className="text-orange-600 font-medium">Loading savouries collection...</p>
+          </div>
+        </div>
+      </div>
     );
   }
 
@@ -154,12 +146,12 @@ export default function SavouriesCollection() {
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-white mt-16 py-12">
       {/* ✅ Navbar goes here */}
       <Navbar />
-      
+
       <div className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header with Back Button */}
           <div className="flex items-center mb-8">
-           
+
           </div>
 
           {/* Page Title */}
@@ -189,14 +181,14 @@ export default function SavouriesCollection() {
                 {namkeens.map((item, index) => {
                   const selected = selectedPricing[item._id];
                   const isDropdownOpen = dropdownOpen[item._id];
-                  
+
                   return (
-                    <Link 
-                      key={item._id} 
+                    <Link
+                      key={item._id}
                       href={`/products/${item._id}?_pos=${index + 1}&_psq=namkeen&_ss=e&_v=1.0`}
                       className="block"
                     >
-                      <div 
+                      <div
                         className="bg-white rounded-2xl shadow-lg overflow-visible hover:shadow-2xl transition-all duration-300 border border-orange-100 transform hover:-translate-y-1 cursor-pointer"
                         style={{ zIndex: isDropdownOpen ? 1000 : 1 }}
                       >
@@ -251,16 +243,15 @@ export default function SavouriesCollection() {
                                       <span className="text-gray-500 font-medium">Select option</span>
                                     )}
                                   </div>
-                                  <ChevronDown 
-                                    className={`h-5 w-5 text-orange-500 transition-transform duration-200 ${
-                                      isDropdownOpen ? 'rotate-180' : ''
-                                    }`} 
+                                  <ChevronDown
+                                    className={`h-5 w-5 text-orange-500 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''
+                                      }`}
                                   />
                                 </button>
 
                                 {/* Dropdown Options - Fixed positioning and z-index */}
                                 {isDropdownOpen && (
-                                  <div 
+                                  <div
                                     className="absolute top-full left-0 right-0 mt-2 bg-white border-2 border-orange-200 rounded-xl shadow-2xl max-h-60 overflow-y-auto"
                                     style={{ zIndex: 9999 }}
                                     data-dropdown
@@ -274,14 +265,13 @@ export default function SavouriesCollection() {
                                           e.stopPropagation();
                                           handlePricingSelect(item._id, pricing);
                                         }}
-                                        className={`w-full flex items-center justify-between p-4 hover:bg-orange-50 transition-colors border-b border-orange-100 last:border-b-0 ${
-                                          selected && 
-                                          selected.quantity === pricing.quantity && 
-                                          selected.unit === pricing.unit && 
+                                        className={`w-full flex items-center justify-between p-4 hover:bg-orange-50 transition-colors border-b border-orange-100 last:border-b-0 ${selected &&
+                                          selected.quantity === pricing.quantity &&
+                                          selected.unit === pricing.unit &&
                                           selected.price === pricing.price
-                                            ? 'bg-orange-100 text-orange-700 border-orange-200' 
-                                            : 'text-gray-700 hover:text-orange-700'
-                                        }`}
+                                          ? 'bg-orange-100 text-orange-700 border-orange-200'
+                                          : 'text-gray-700 hover:text-orange-700'
+                                          }`}
                                       >
                                         <div className="flex flex-col items-start">
                                           <span className="font-semibold text-base">
@@ -306,11 +296,10 @@ export default function SavouriesCollection() {
                           <div className="flex justify-center">
                             <button
                               type="button"
-                              className={`w-full max-w-xs py-4 px-6 rounded-xl font-semibold transition-all duration-300 shadow-lg ${
-                                selected
-                                  ? 'bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 hover:shadow-xl transform hover:-translate-y-1 hover:scale-105'
-                                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                              }`}
+                              className={`w-full max-w-xs py-4 px-6 rounded-xl font-semibold transition-all duration-300 shadow-lg ${selected
+                                ? 'bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 hover:shadow-xl transform hover:-translate-y-1 hover:scale-105'
+                                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                                }`}
                               onClick={(e) => handleAddToCart(item, e)}
                               disabled={!selected}
                             >
