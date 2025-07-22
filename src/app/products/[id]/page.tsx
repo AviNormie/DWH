@@ -277,13 +277,15 @@ export default function ProductPage() {
               <div className="relative">
                 {/* Main Image */}
                 <div className="aspect-square rounded-xl overflow-hidden bg-gray-100 relative">
-                  <Image
-                    src={productImages[currentImageIndex]}
-                    alt={product.name}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover"
-                  />
+                <Image
+  src={productImages[currentImageIndex]}
+  alt={product.name}
+  fill
+  // Apply priority for the main product image as it's likely LCP on this page
+  priority={true}
+  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
+  className="object-cover"
+/>
                   
                   {/* Image Navigation - Only show if multiple images */}
                   {productImages.length > 1 && (

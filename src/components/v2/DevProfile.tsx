@@ -7,7 +7,7 @@ function DevProfile() {
             <Link href="https://avi-profile.vercel.app/" target="_blank" rel="noopener noreferrer" className="ml-1 underline text-orange-600 font-bold hover:text-orange-500 transition-colors">Avi </Link>
             <span className="mx-1">&</span>
 
-            <Link href="https://github.com/" target="_blank" rel="noopener noreferrer" className="ml-1 underline text-orange-600 font-bold hover:text-orange-500 transition-colors">Ipsita</Link>
+            <Link href="https://portfolio-liart-two-0b1qxzrwt1.vercel.app" target="_blank" rel="noopener noreferrer" className="ml-1 underline text-orange-600 font-bold hover:text-orange-500 transition-colors">Ipsita</Link>
         </p>
     </>
   )
