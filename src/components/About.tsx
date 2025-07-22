@@ -1,5 +1,6 @@
 import React from 'react';
 import { Heart, Award, Users, Clock, Star, Crown } from 'lucide-react';
+import DevProfile from './v2/DevProfile';
 
 const About = () => {
   return (
@@ -207,7 +208,7 @@ const About = () => {
             </div>
           </div>
         </div>
-
+        <DevProfile />
       </div>
     </div>
   );
