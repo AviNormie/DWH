@@ -203,12 +203,16 @@ export default function SweetsCollection() {
                       >
                         {/* Product Image */}
                         <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-orange-100 to-orange-50">
-                          <Image
-                            src={item.image || "/placeholder-image.jpg"}
-                            alt={item.name}
-                            fill
-                            className="object-cover hover:scale-110 transition-transform duration-500"
-                          />
+                        <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-orange-100 to-orange-50">
+  <Image
+    src={item.image || "/placeholder-image.jpg"}
+    alt={item.name}
+    fill
+    // Add sizes to tell Next.js how wide the image will be at different breakpoints
+    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+    className="object-cover hover:scale-110 transition-transform duration-500"
+  />
+</div>
                           {item.type && item.type !== 'none' && (
                             <div className="absolute top-3 left-3 bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md">
                               {item.type}

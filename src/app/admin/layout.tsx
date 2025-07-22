@@ -1,4 +1,4 @@
-export const metadata = {
+export const viewport = {
   title: 'Admin - Delhiwala Halwai',
   description: 'Admin dashboard for managing sweets, namkeen, bhaji boxes, and orders at Delhiwala Halwai.',
   openGraph: {

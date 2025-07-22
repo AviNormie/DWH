@@ -112,14 +112,17 @@ const Carousel = () => {
         >
           {images.map((src, idx) => (
             <div key={idx} className="min-w-full h-full relative">
-              <Image
-                src={src}
-                height={1000}
-                width={1000}
-                alt={`Slide ${idx + 1}`}
-                className="w-full h-full object-cover"
-                loading={idx === 0 ? "eager" : "lazy"}
-              />
+            <Image
+  src={src}
+  height={1000}
+  width={1000}
+  alt={`Slide ${idx + 1}`}
+  className="w-full h-full object-cover"
+  // Add priority to the first image for LCP optimization
+  // Ensure sizes accurately reflect how the image is displayed across breakpoints
+  priority={idx === 0}
+  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+/>
             </div>
           ))}
         </div>
