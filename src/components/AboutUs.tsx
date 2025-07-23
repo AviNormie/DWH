@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import Navbar from './Navbar'; // Adjust the import path if Navbar is in a different directory
+import DevProfile from './v2/DevProfile';
 
 const AboutUs = () => {
   return (
@@ -147,6 +148,9 @@ const AboutUs = () => {
                 </p>
               </div>
             </div>
+          </div>
+          <div className=''>
+          <DevProfile />
           </div>
         </div>
       </div>
