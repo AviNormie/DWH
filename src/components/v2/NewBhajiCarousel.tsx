@@ -54,6 +54,11 @@ export default function NewBhajiCarousel() {
         {
           description: `₹${box.price}`,
           duration: 3000,
+          style: {
+            backgroundColor: '#fef3c7',   // Tailwind orange-50
+            border: '1px solid #fdba74', // Tailwind orange-300
+            color: '#ea580c',            // Tailwind orange-600 (text)
+          },
         }
       );
     } catch (error) {
