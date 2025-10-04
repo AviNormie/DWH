@@ -4,8 +4,8 @@ import { useSession } from "next-auth/react";
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Carousel from "../components/Carousel";
-// import LatestProduct from "@/components/LatestSweet";
-import NewLatestProduct from "@/components/v2/NewLatestSweet";
+import LatestProduct from "@/components/LatestSweet";
+// import NewLatestProduct from "@/components/v2/NewLatestSweet";
 // import PopularProduct from "@/components/PopularProduct";
 import InteractiveMap from '@/components/InteractiveMap';
 // import LatestNamkeen from "@/components/LatestNamkeen";
@@ -42,10 +42,11 @@ export default function Home() {
         </div>
 
         <section className="max-w-7xl mx-auto px-4 py-8">
-          {/* <LatestProduct /> */}
+          
           {/* <LatestNamkeen /> */}
-          <NewLatestProduct />
+          {/* <NewLatestProduct /> */}
           <NewLatestNamkeen />
+          <LatestProduct />
         </section>
 
         <section className="max-w-7xl mx-auto px-4 py-8">
