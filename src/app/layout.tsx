@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import QueryProvider from '@/providers/QueryProvider';
 import ClientProviders from "./ClientProviders";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Toaster } from 'sonner';
 import type { Metadata } from 'next';
 
@@ -99,6 +100,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           duration={3000}
         />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
