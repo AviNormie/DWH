@@ -27,7 +27,7 @@ const PRODUCTS: Product[] = [
     variant: 'mawa', 
     label: 'Mawa Barfi', 
     price: 42000, 
-    mainPrice: 2100000,
+    mainPrice: 2200000,
     image: '/mawa-barfi.jpeg',
     description: 'Rich and creamy barfi made with pure mawa and cardamom',
     rating: 4.8
@@ -37,7 +37,7 @@ const PRODUCTS: Product[] = [
     variant: 'mawa', 
     label: 'Mawa Peda', 
     price: 42000, 
-    mainPrice: 2100000,
+    mainPrice: 2200000,
     image: '/mawa-peda.jpeg',
     description: 'Traditional rich and creamy peda ladoo with roasted nuts',
     rating: 4.4
@@ -47,7 +47,7 @@ const PRODUCTS: Product[] = [
     variant: 'moong', 
     label: 'Moong Ladoo', 
     price: 37000, 
-    mainPrice: 1850000,
+    mainPrice: 2000000,
     image: '/ladoo.jpeg',
     description: 'Traditional ladoo prepared with roasted moong dal and ghee',
     rating: 4.6
@@ -57,7 +57,7 @@ const PRODUCTS: Product[] = [
     variant: 'moong', 
     label: 'Moong Barfi', 
     price: 37000, 
-    mainPrice: 1850000,
+    mainPrice: 2000000,
     image: '/moong-dal-barfi.jpg',
     description: 'Nutritious and delicious barfi made from yellow moong dal',
     rating: 4.7
@@ -67,7 +67,7 @@ const PRODUCTS: Product[] = [
     variant: 'dilkhushal', 
     label: 'Dilkhushal Barfi', 
     price: 34000, 
-    mainPrice: 1700000,
+    mainPrice: 2000000,
     image: '/dilkushar-barfi.jpg',
     description: 'Special festive barfi with mixed nuts and aromatic spices',
     rating: 4.9
@@ -77,7 +77,7 @@ const PRODUCTS: Product[] = [
     variant: 'motichoor', 
     label: 'Motichoor Ladoo', 
     price: 34000, 
-    mainPrice: 1700000,
+    mainPrice: 2000000,
     image: '/motichoor-ladoo.jpg',
     description: 'Fine textured ladoo made with tiny boondi pearls',
     rating: 4.8
@@ -87,7 +87,7 @@ const PRODUCTS: Product[] = [
     variant: 'churma', 
     label: 'Churma', 
     price: 25000, 
-    mainPrice: 1250000,
+    mainPrice: 1400000,
     image: '/churma.jpeg',
     description: 'Traditional Rajasthani sweet made with wheat flour and jaggery',
     rating: 4.5
@@ -97,7 +97,7 @@ const PRODUCTS: Product[] = [
     variant: 'moti boondi', 
     label: 'Moti Boondi Ladoo', 
     price: 31000, 
-    mainPrice: 1550000,
+    mainPrice: 1700000,
     image: '/moti-boondi-ladoo.jpg',
     description: 'Classic ladoo made with large boondi pearls and dry fruits',
     rating: 4.7
@@ -107,7 +107,7 @@ const PRODUCTS: Product[] = [
     variant: 'barik boondi', 
     label: 'Barik Boondi Ladoo', 
     price: 31000, 
-    mainPrice: 1550000,
+    mainPrice: 1700000,
     image: '/baarik-boondi.png',
     description: 'Soft and melt-in-mouth ladoo with fine boondi texture',
     rating: 4.6
@@ -117,7 +117,7 @@ const PRODUCTS: Product[] = [
     variant: 'besan', 
     label: 'Besan Barfi', 
     price: 32000, 
-    mainPrice: 1600000,
+    mainPrice: 1700000,
     image: '/besan-barfi.jpg',
     description: 'Aromatic gram flour barfi with pure ghee and cardamom',
     rating: 4.5
@@ -127,7 +127,7 @@ const PRODUCTS: Product[] = [
     variant: 'besan', 
     label: 'Besan Ladoo', 
     price: 32000, 
-    mainPrice: 1600000,
+    mainPrice: 1700000,
     image: '/besan-ladoo.jpg',
     description: 'Traditional gram flour ladoo with roasted nuts',
     rating: 4.4
