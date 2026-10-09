@@ -236,15 +236,6 @@ export default function AdminEnquiriesPage(): React.JSX.Element {
               </button>
               <button
                 onClick={() => {
-                  router.push("/admin/sawamani");
-                  setDrawerOpen(false);
-                }}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center gap-2"
-              >
-                Sawamani Orders
-              </button>
-              <button
-                onClick={() => {
                   router.push("/admin/orders");
                   setDrawerOpen(false);
                 }}
