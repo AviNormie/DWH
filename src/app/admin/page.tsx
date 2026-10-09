@@ -450,12 +450,6 @@ export default function AdminPanel() {
               Enquiries
             </button>
             <button 
-              onClick={() => router.push('/admin/sawamani')}
-              className="bg-blue-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg flex items-center gap-2 transition-colors"
-            >
-              Sawamani Orders
-            </button>
-            <button 
               onClick={() => router.push('/admin/orders')}
               className="bg-blue-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg flex items-center gap-2 transition-colors"
             >
@@ -530,15 +524,6 @@ export default function AdminPanel() {
                 className="bg-blue-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg flex items-center gap-2"
               >
                 Enquiries
-              </button>
-              <button
-                onClick={() => {
-                  router.push("/admin/sawamani");
-                  setDrawerOpen(false);
-                }}
-                className="bg-blue-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg flex items-center gap-2"
-              >
-                Sawamani Orders
               </button>
               <button
                 onClick={() => {
